@@ -19,6 +19,7 @@ class CreateRatingUserTourContraint extends Migration
         });
     }
 
+    
     /**
      * Reverse the migrations.
      *

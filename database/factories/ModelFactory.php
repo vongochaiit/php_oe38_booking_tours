@@ -12,13 +12,111 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(\App\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'username' => $faker->userName,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
+        'name' => $faker->name,
+        'address' => $faker->address,
+        'phone' => $faker->phoneNumber,
+        'image' => $faker->name,
         'remember_token' => str_random(10),
     ];
 });
+
+// Category
+$factory->define(\App\Models\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'parent_id' => $faker->numberBetween(8,10),
+    ];
+});
+
+//Tour
+$factory->define(\App\Models\Tour::class, function (Faker\Generator $faker) {
+    $name = $faker->name;
+    $slug = str_slug($name);
+    return [
+        'name' => $name,
+        'image' => $faker->name,
+        'slug' => $slug,
+        'place_from' => $faker->country,
+        'place_to' => $faker->country,
+        'place_tobe' => $faker->country,
+        'duration' => $faker->numberBetween(1,5),
+        'price' => $faker->numberBetween(1000,5000),
+        'hotel_star' => $faker->numberBetween(1,5),
+        'des' => $faker->text(100),
+        'quantity_people' => $faker->numberBetween(1,5),
+        'booking_number' => $faker->randomDigit(),
+        'category_id' => $faker->numberBetween(8,18),
+    ];
+});
+
+//Rating
+$factory->define(\App\Models\Rating::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => $faker->numberBetween(1,10),
+        'tour_id' => $faker->numberBetween(1,10),
+        'rating' => $faker->numberBetween(0,5),
+    ];
+});
+
+//CommentReview
+$factory->define(\App\Models\CommentReview::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => $faker->numberBetween(1,10),
+        'tour_id' => $faker->numberBetween(1,10),
+        'content' => $faker->text(100),
+        'type' => $faker->numberBetween(1,2),
+        'parent_id' => $faker->numberBetween(1,10),
+    ];
+});
+
+//Like
+$factory->define(\App\Models\Like::class, function (Faker\Generator $faker) {
+    return [
+        'review_id' => $faker->numberBetween(1,10),
+        'user_id' => $faker->numberBetween(1,10),
+    ];
+});
+
+//BankAccount
+$factory->define(\App\Models\BankAccount::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => $faker->numberBetween(1,10),
+        'bank_name' => $faker->name,
+    ];
+});
+
+//Payment
+$factory->define(\App\Models\Payment::class, function (Faker\Generator $faker) {
+    return [
+        'payment_method' => $faker->word,
+        'bank_id' => $faker->numberBetween(1,10),
+        'payment_status' => $faker->numberBetween(1,2)
+    ];
+});
+
+//Booktour
+$factory->define(\App\Models\BookTour::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => $faker->numberBetween(1,10),
+        'payment_id' => $faker->numberBetween(1,10),
+    ];
+});
+
+//BooktourDetails
+$factory->define(\App\Models\BookTourDetails::class, function (Faker\Generator $faker) {
+    return [
+        'tour_id' => $faker->numberBetween(1,10),
+        'booktour_id' => $faker->numberBetween(1,10),
+        'tour_name' => $faker->name,
+        'quantity_people' => $faker->numberBetween(1,10),
+        'price' => $faker->numberBetween(1000,5000),
+    ];
+});
+

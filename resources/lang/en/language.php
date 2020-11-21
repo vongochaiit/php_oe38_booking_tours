@@ -44,4 +44,9 @@ return [
         'password_required' => 'Password is required',
         'password_min' => 'Password is too short',
     ],
+    'username' => 'Username',
+    'password' => 'Password',
+    'forgot' => 'Forgot',
+    'remember_me' => 'Remember me',
+    'or_Sign_in_with' => 'or Sign in with;',
 ];

@@ -15,7 +15,7 @@ class LoginController extends Controller
         if(Auth::check()){
             return redirect()->route('home.index');
         }
-        view('client.pages.login');
+        return view('client.pages.login');
     }
 
     public function login(LoginRequest $request)

@@ -44,4 +44,9 @@ return [
         'password_required' => 'Mật khẩu bắt buộc',
         'password_min' => 'Mật khẩu quá ngắn',
     ],
+    'username' => 'Tên đăng nhập',
+    'password' => 'Mật khẩu',
+    'forgot' => 'Quên',
+    'remember_me' => 'Ghi nhớ đăng nhập',
+    'or_Sign_in_with' => 'Đăng nhập với',
 ];

@@ -7,19 +7,19 @@
 
 </head>
 <body>
-<form class="login-form">
-
-
+<form class="login-form" action="{{route('admin.login')}}" method="POST">
+  {{ csrf_field() }}
   <p class="login-text">
     Admin
   </p>
-  <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
-  <input type="password" class="login-password" required="true" placeholder="Password" />
+  <input type="text" name="username" class="login-username" autofocus="true" required="true" placeholder="Username" />
+  <p class="help is-danger">{{ $errors->first('username') }}</p>
+  <input type="password" name="password" class="login-password" required="true" placeholder="Password" />
+  <p class="help is-danger">{{ $errors->first('password') }}</p>
   <input type="submit" name="Login" value="Login" class="login-submit" />
+  <div> @include('Common.Error') </div>
 </form>
 <div class="underlay-photo"></div>
 <div class="underlay-black"></div>
-
-
 </body>
 </html>

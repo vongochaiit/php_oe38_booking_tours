@@ -32,8 +32,8 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('categorie.index')}}">@lang('language.listcate')</a>
-                <a class="collapse-item" href="{{route('categorie.create')}}">@lang('language.catecre')</a>
+                <a class="collapse-item" href="">@lang('language.listcate')</a>
+                <a class="collapse-item" href="">@lang('language.catecre')</a>
 
             </div>
         </div>

@@ -21,14 +21,26 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">@lang('language.touroutcountry')</a>
                     </li>
+                    @if (Auth::check())
                     <li class="nav-item">
 
-                        <a class="nav-link" href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#elegantModalForm">@lang('language.signin')</a>
+                        <a class="nav-link" href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#elegantModalForm">{{Auth::user()->username}}</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">@lang('language.signup')</a>
+
+                        <a class="nav-link" href="{{route('logout')}}" class="btn btn-default btn-rounded">@lang('language.logout')</a>
                     </li>
+                    @else
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#elegantModalForm">@lang('language.signin')</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">@lang('language.signup')</a>
+                        </li>
+
+                    @endif
                     <li class="nav-item"> 
                         <a class="nav-link"href="{!! route('user.change-language', ['en']) !!}">en</a>
                       

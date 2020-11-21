@@ -2,8 +2,8 @@
 return [
     'tourincountry' => 'Du lịch trong nước',
     'touroutcountry' => 'Du lịch  nước ngoài',
-    'signin' => 'Đăng ký',
-    'signup' => 'Đăng nhập',
+    'signin' => 'Đăng nhập',
+    'signup' => 'Đăng ký',
     'selectlanguage' => 'Chọn ngôn ngữ',
     'slogan' => '
     Bạn không cần phải đi đâu xa để tìm những gì quan trọng',
@@ -33,12 +33,15 @@ return [
     'review' => 'Đánh giá ',
     'comment' => 'Bình luận',
     'chart' => 'Doanh thu',
-    
-    
-
-    
-    
-    
-
-
+    'logout' => 'Đăng xuất', 
+    'error' => [
+        'error_login' => ' Tài khoản hoặc mật khẩu không chính xác', 
+        'error_access' => 'Bạn không thể truy cập vào trang admin!', 
+    ],
+    'messages' => [
+        'username_required' => 'Tên đăng nhập bắt buộc',
+        'username_min' => 'Tên đăng nhập qúa ngắn',
+        'password_required' => 'Mật khẩu bắt buộc',
+        'password_min' => 'Mật khẩu quá ngắn',
+    ],
 ];

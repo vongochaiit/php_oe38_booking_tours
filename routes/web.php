@@ -11,33 +11,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
-
-// admin
-Route::get('admin', function () {
-    return view('admin.pages.index');
+Route::group([
+    'prefix'=>'admin',
+    'namespace'=>'Admin',
+    'as' => 'admin.',
+],function(){
+    Route::get('login','LoginController@index')->name('showlogin');
+    Route::post('login','LoginController@login')->name('login');
+    Route::group(['middleware'=>'check_admin'],function(){
+        Route::get('logout','LoginController@logout')->name('logout');
+        Route::get('/','DashboardController@index')->name('dashboard');
+    });
 });
-
-Route::get('/admin/login', function () {
-    return view('admin.pages.login');
+Route::group(['namespace'=>'User'],function(){
+    Route::get('login','LoginController@index')->name('showlogin');
+    Route::post('login','LoginController@login')->name('login'); 
+    Route::get('home','HomeController@index')->name('home.index');
+    Route::get('logout','LoginController@logout')->name('logout');
 });
-
-
-Route::get('/admin/login', function () {
-    return view('admin.pages.login');
-});
-
-Route::get('/login', function () {
-    return view('client.pages.login');
-});
-// client
-Route::get('/home', function () {
-    return view('client.layouts.master');
-});
-Route::get('/home/profile', function () {
-    return view('client.pages.profile');
-});
-
 
 Route::get('/home/tour_details', function () {
     return view('client.layouts.tour_details');
@@ -47,11 +38,3 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('change-language/{language}', 'changeLanguageController@changeLanguage')
         ->name('user.change-language');
 });
-
-Route::resource('categorie','CategoriesController');
-
-
-
-
-
-

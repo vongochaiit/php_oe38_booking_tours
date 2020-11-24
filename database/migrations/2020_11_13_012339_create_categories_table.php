@@ -34,6 +34,6 @@ class CreateCategoriesTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('categories');
-        Schema::enableForeignKeyConstraints();
+        Schema::enableForeignKeyConstraints(); 
     }
 }

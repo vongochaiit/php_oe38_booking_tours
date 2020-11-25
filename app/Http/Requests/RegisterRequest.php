@@ -31,6 +31,7 @@ class RegisterRequest extends FormRequest
             'name' => 'bail|required|min:3',
             'address' => 'bail|required|min:3',
             'phone' => 'bail|required|min:3',
+            'image'=> 'bail|required|', 
         ];
     }
 }

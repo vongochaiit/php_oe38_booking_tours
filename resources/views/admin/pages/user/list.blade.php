@@ -1,48 +1,43 @@
 @extends('admin.layouts.master')
+
 @section('title')
-Danh sach danh muc tour
+    Admin
 @endsection
-
+	
 @section('content')
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Category tour</h6>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>List user</title>
+	<link href="{{ mix('css/client.css' )}}" rel="stylesheet">
+    <link href="{{ mix('fonts/font-awe.css' )}}" rel="stylesheet">
+    <base href="{{ asset('') }}">
+	<script type="text/javascript" src="{{ mix('js/client.js') }}"></script>
+</head>
+<body>
+    <div class="row container">
+        <table class="table table-hover ">
+            <thead style="text-align: center;">
+                <tr class="table table-bordered table-danger">
+                    <th>#</th>
+                    <th>@lang('language.name')</th>
+                    <th>@lang('language.username')</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($user as $key => $value)
+                <tr class="table table-bordered ">
+                    <td class="">{{ ++$key }}</td>
+                    <td class="">{{ $value->name }}</td>
+                    <td class="">{{ $value->username }}</td>
+                </tr>
+                @endforeach()
+            </tbody>
+        </table>
     </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($categories as $key => $value)
-
-
-                    <tr>
-                        <td>{{$key++}}</td>
-                        <td>{{$value->name}}</td>
-                        <td>
-                            @if ($value->status==1)
-                                {{"Hien thi"}}
-                            @else
-                                {{"Khong hien thi"}}
-                            @endif
-                        </td>
-                        <td>
-                        <button class="btn btn-primary edit" ><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger delete"  ><i class="fas fa-trash-alt"></i></button>
-
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+</body>
+</html>	
+<div class="d-flex justify-content-center">{{ $user->links() }}</div>
 @endsection

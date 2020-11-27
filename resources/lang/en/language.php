@@ -33,13 +33,15 @@ return [
     'review' => 'Review',
     'comment' => 'Comment',
     'chart' => 'Chart',
-
-
-    
-
-
-
-
-
-
+    'logout' => 'Logout',
+    'error' => [
+        'error_login' => 'Incorrect username or password',
+        'error_access' => 'You can not access to admin page!',
+    ],
+    'messages' => [
+        'username_required' => 'Username is required',
+        'username_min' => 'Username is too short',
+        'password_required' => 'Password is required',
+        'password_min' => 'Password is too short',
+    ],
 ];

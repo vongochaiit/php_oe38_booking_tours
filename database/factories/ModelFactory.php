@@ -18,7 +18,7 @@ $factory->define(\App\Models\User::class, function (Faker\Generator $faker) {
     return [
         'username' => $faker->userName,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => $password ?: $password = bcrypt('123456'),
         'name' => $faker->name,
         'address' => $faker->address,
         'phone' => $faker->phoneNumber,
@@ -31,7 +31,7 @@ $factory->define(\App\Models\User::class, function (Faker\Generator $faker) {
 $factory->define(\App\Models\Category::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'parent_id' => $faker->numberBetween(8,10),
+        'parent_id' => $faker->numberBetween(0,10),
     ];
 });
 
@@ -52,7 +52,7 @@ $factory->define(\App\Models\Tour::class, function (Faker\Generator $faker) {
         'des' => $faker->text(100),
         'quantity_people' => $faker->numberBetween(1,5),
         'booking_number' => $faker->randomDigit(),
-        'category_id' => $faker->numberBetween(8,18),
+        'category_id' => $faker->numberBetween(1,10),
     ];
 });
 
@@ -67,12 +67,13 @@ $factory->define(\App\Models\Rating::class, function (Faker\Generator $faker) {
 
 //CommentReview
 $factory->define(\App\Models\CommentReview::class, function (Faker\Generator $faker) {
+    $type = $faker->numberBetween(1,2);
     return [
         'user_id' => $faker->numberBetween(1,10),
         'tour_id' => $faker->numberBetween(1,10),
         'content' => $faker->text(100),
-        'type' => $faker->numberBetween(1,2),
-        'parent_id' => $faker->numberBetween(1,10),
+        'type' => $type,
+        'parent_id' => $type == 1 ? $faker->numberBetween(1,10) : null,
     ];
 });
 

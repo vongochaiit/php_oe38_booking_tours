@@ -25,7 +25,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button type="submit" class="btn btn-success">Submit Button</button>
+                <button type="submit" class="btn btn-success">{{trans('language.create')}}</button>
             </form>
         </div>
     </div>

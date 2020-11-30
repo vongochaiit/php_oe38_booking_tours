@@ -22,6 +22,7 @@ Route::group([
         Route::get('logout' , 'LoginController@logout')->name('logout');
         Route::get('/', 'DashboardController@index')->name('dashboard');
         Route::resource('tour', 'TourController');
+        Route::resource('/category','CategoryController');
     });
 });
 Route::group(['namespace'=>'User'], function(){

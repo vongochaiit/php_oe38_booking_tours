@@ -68,4 +68,12 @@ return [
     'image' => 'Image',
     'create' => 'Create',
     'update' => 'Update',
+    'or_Sign_in_with' => 'or Sign in with;',
+    'name' => 'Name',
+    'parent_category' => 'Parent Category',
+    'action' => 'Action',
+    'category_list' => 'Category List',
+    'category_edit' => 'Category Edit',
+    'category' => 'Category',
+    'create' => 'Create',
 ];

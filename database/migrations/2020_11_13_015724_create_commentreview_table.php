@@ -20,7 +20,7 @@ class CreateCommentreviewTable extends Migration
             $table->integer('tour_id')->unsigned();
             $table->longText('content');
             $table->integer('type');
-            $table->integer('parent_id')->unsigned();
+            $table->integer('parent_id')->unsigned()->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
             $table->softDeletes(); 

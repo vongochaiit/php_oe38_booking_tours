@@ -32,6 +32,9 @@ Route::group(['namespace'=>'User'], function(){
     Route::get('logout', 'LoginController@logout')->name('logout');
     Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
     Route::get('/callback/{provider}', 'SocialController@callback');
+
+    Route::get('/tour/index', 'TourController@index')->name('user.tour.index');
+    Route::get('/tour/show/{id}', 'TourController@show')->name('user.tour.show');
 });
 
 Route::get('/home/tour_details', function () {

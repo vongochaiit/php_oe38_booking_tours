@@ -76,4 +76,5 @@ return [
     'category_edit' => 'Category Edit',
     'category' => 'Category',
     'create' => 'Create',
+    'book_now' => 'Book Now',
 ];

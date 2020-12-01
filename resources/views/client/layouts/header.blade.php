@@ -42,6 +42,10 @@
 
                     @endif
                     <li class="nav-item"> 
+                        <a class="nav-link"href="{{route('user.tour.index')}}">{{trans('language.list_tour')}}</a>
+                      
+                    </li>
+                    <li class="nav-item"> 
                         <a class="nav-link"href="{!! route('user.change-language', ['en']) !!}">en</a>
                       
                     </li>

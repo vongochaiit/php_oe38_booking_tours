@@ -1,5 +1,5 @@
 @if (Session::has('Error'))
     <div>
-        <p>{{ Session::get('Error') }}</p>
+        <p class="text text-danger">{{ Session::get('Error') }}</p>
     </div>
 @endif

@@ -75,4 +75,5 @@ return [
     'category_edit' => 'Chỉnh sửa danh mục',
     'category' => 'Danh mục',
     'create' => 'Tạo',
+    'book_now' => 'Đặt tour',
 ];

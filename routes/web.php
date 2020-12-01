@@ -28,6 +28,8 @@ Route::group(['namespace'=>'User'],function(){
     Route::post('login','LoginController@login')->name('login'); 
     Route::get('home','HomeController@index')->name('home.index');
     Route::get('logout','LoginController@logout')->name('logout');
+    Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+    Route::get('/callback/{provider}', 'SocialController@callback');
 });
 
 Route::get('/home/tour_details', function () {

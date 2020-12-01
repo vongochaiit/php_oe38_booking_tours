@@ -68,4 +68,11 @@ return [
     'image' => 'Ảnh',
     'create' => 'Tạo',
     'update' => 'Cập nhật',
+    'name' => 'Tên',
+    'parent_category' => 'Danh mục cha',
+    'action' => 'Hành động',
+    'category_list' => 'Danh sách các danh mục',
+    'category_edit' => 'Chỉnh sửa danh mục',
+    'category' => 'Danh mục',
+    'create' => 'Tạo',
 ];

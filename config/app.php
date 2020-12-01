@@ -4,6 +4,8 @@ return [
     'admin_role' => 1,
     'user_role' => 0,
     'paginate_number' =>10,
+    'comment_type' => 1,
+    'review_type' => 2,
 
     /*
     |--------------------------------------------------------------------------

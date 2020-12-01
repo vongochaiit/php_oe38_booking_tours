@@ -77,4 +77,13 @@ return [
     'category' => 'Category',
     'create' => 'Create',
     'book_now' => 'Book Now',
+    'review_none' => 'No review for this tour',
+    'review_create' => 'Create new review',
+    'title' => 'Title',
+    'content' => 'Content',
+    'close' => 'Close',
+    'delete' => 'Delete',
+    'edit' => 'Edit',
+    'error_edit_review' => 'You cannot edit this review!',
+    'error_delete_review' => 'You cannot delete this review!',
 ];

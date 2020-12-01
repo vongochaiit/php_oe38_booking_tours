@@ -76,4 +76,13 @@ return [
     'category' => 'Danh mục',
     'create' => 'Tạo',
     'book_now' => 'Đặt tour',
+    'review_none' => 'Chưa có review nào về tour này',
+    'review_create' => 'Tạo review mới',
+    'title' => 'Tiêu đề',
+    'content' => 'Nội dung',
+    'close' => 'Đóng',
+    'delete' => 'Xóa',
+    'edit' => 'Sửa',
+    'error_edit_review' => 'Bạn không thể sử a review này!',
+    'error_delete_review' => 'Bạn không thể xóa review này!',
 ];

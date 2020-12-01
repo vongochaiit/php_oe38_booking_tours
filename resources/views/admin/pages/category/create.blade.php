@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-Danh sach danh muc tour
+{{trans('language.category_list')}}
 @endsection
 
 @section('content')
@@ -10,24 +10,26 @@ Danh sach danh muc tour
     </div>
     <div class="row" style="margin: 5px">
         <div class="col-lg-12">
-            <form role="form" action="{{ route('categorie.store') }}" method="post">
-                <meta name="csrf-token" content="{{ csrf_token() }}">
+            <form role="form" action="{{route('admin.category.store')}}" method="post">
+                {{ csrf_field() }}
                 <fieldset class="form-group">
-                    <label>Name</label>
-                    <input class="form-control" name="name" placeholder="Nhập tên category">
+                    <label>{{trans('language.category')}}</label>
+                    <input class="form-control" name="name">
                 </fieldset>
                 <div class="form-group">
-                    <label>Status</label>
-                    <select class="form-control" name="status">
-                        <option value="1">Hiển Thị</option>
-                        <option value="0">Không Hiển Thị</option>
+                    <label>{{trans('language.parent_category')}}</label>
+                    <select class="form-control" name="parent_id">
+                        <option value="0">{{trans('language.parent_category')}}</option>
+                        @foreach ($categories as $category)
+                            <option value="{{$category->categories_id}}">{{$category->name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <button type="submit" class="btn btn-success">Submit Button</button>
-                <button type="reset" class="btn btn-primary">Reset Button</button>
             </form>
         </div>
     </div>
 </div>    
 @endsection
+
 

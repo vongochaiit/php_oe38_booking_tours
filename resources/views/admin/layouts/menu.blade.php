@@ -26,15 +26,27 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fa fa-list-alt" aria-hidden="true"></i>
             <span>@lang('language.cate')</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseCategory" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="">@lang('language.listcate')</a>
                 <a class="collapse-item" href="">@lang('language.catecre')</a>
 
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTour" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fa fa-list-alt" aria-hidden="true"></i>
+            <span>@lang('language.tour')</span>
+        </a>
+        <div id="collapseTour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{route('admin.tour.index')}}">@lang('language.list_tour')</a>
+                <a class="collapse-item" href="{{route('admin.tour.create')}}">@lang('language.create_tour')</a>
             </div>
         </div>
     </li>

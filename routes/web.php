@@ -16,18 +16,19 @@ Route::group([
     'namespace'=>'Admin',
     'as' => 'admin.',
 ],function(){
-    Route::get('login','LoginController@index')->name('showlogin');
-    Route::post('login','LoginController@login')->name('login');
-    Route::group(['middleware'=>'check_admin'],function(){
-        Route::get('logout','LoginController@logout')->name('logout');
-        Route::get('/','DashboardController@index')->name('dashboard');
+    Route::get('login', 'LoginController@index')->name('showlogin');
+    Route::post('login', 'LoginController@login')->name('login');
+    Route::group([ 'middleware' => 'check_admin'], function(){
+        Route::get('logout' , 'LoginController@logout')->name('logout');
+        Route::get('/', 'DashboardController@index')->name('dashboard');
+        Route::resource('tour', 'TourController');
     });
 });
-Route::group(['namespace'=>'User'],function(){
-    Route::get('login','LoginController@index')->name('showlogin');
-    Route::post('login','LoginController@login')->name('login'); 
-    Route::get('home','HomeController@index')->name('home.index');
-    Route::get('logout','LoginController@logout')->name('logout');
+Route::group(['namespace'=>'User'], function(){
+    Route::get('login', 'LoginController@index')->name('showlogin');
+    Route::post('login', 'LoginController@login')->name('login'); 
+    Route::get('home', 'HomeController@index')->name('home.index');
+    Route::get('logout', 'LoginController@logout')->name('logout');
     Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
     Route::get('/callback/{provider}', 'SocialController@callback');
 });

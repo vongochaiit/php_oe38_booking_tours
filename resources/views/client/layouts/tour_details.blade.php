@@ -48,19 +48,74 @@
             <label for="name"><b>{{trans('language.place_to')}}</b></label>
             <input type="text" class="form-control" value="{{$tour->place_to}}" readonly>
           </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-md-6">
-          <label for="name"><b>{{trans('language.price')}}</b></label>
-          <input type="text" class="form-control" value="{{$tour->price}}" readonly>
         </div>
-        <div class="col-md-6">
-          <label for="name"><b>{{trans('language.place_tobe')}}</b></label>
-          <input type="text" class="form-control" value="{{$tour->place_tobe}}" readonly>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <label for="name"><b>{{trans('language.price')}}</b></label>
+            <input type="text" class="form-control" value="{{$tour->price}}" readonly>
+          </div>
+          <div class="col-md-6">
+            <label for="name"><b>{{trans('language.place_tobe')}}</b></label>
+            <input type="text" class="form-control" value="{{$tour->place_tobe}}" readonly>
+          </div>
         </div>
-      </div>
     </div>
-</div>
+  </div>
+  <div class="col-md-12">
+    <h4>{{trans('language.review')}}</h4>
+    @if (count($reviews) > 0)
+      <ul>
+        @foreach ($reviews as $review)
+            <li><a href="{{route('review.show',$review->cmr_id)}}">{{$review->title}}</a></li>
+        @endforeach
+      </ul>
+    @else
+      <p>{{trans('language.review_none')}}</p>
+    @endif
+    @auth
+      <div class="mt-5">
+        <a href="#reviewModal" data-toggle="modal"><button class="btn btn-success">{{trans('language.review_create')}}</button></a>
+      </div>
+      <div class="modal fade" id="reviewModal">
+        <div class="modal-dialog modal-lg">
+          <form action="{{route('review.store')}}" method="POST">
+            {{  csrf_field()  }}
+            <div class="modal-content">
+              
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">{{trans('language.review_create')}}</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              
+              <!-- Modal body -->
+              <div class="modal-body">
+                <input type="hidden" name="tour_id" value="{{$tour->tour_id}}">
+                <div class="form-group">
+                  <label for="title">{{trans('language.title')}}</label>
+                  <input type="text" class="form-control" name="title" value="{{old('title')}}"/>
+                  <p class="text text-danger">{{ $errors->first('title') }}</p>
+
+                </div>
+                <div class="form-group">
+                  <label for="content">{{trans('language.content')}}</label>
+                  <textarea name="content" class="form-control" cols="30" rows="10">{{old('content')}}</textarea>
+                  <p class="text text-danger">{{ $errors->first('content') }}</p>
+                </div>
+              </div>
+              
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success">{{trans('language.create')}}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('language.close')}}</button>
+              </div>
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    @endauth
+  </div>
   <!-- Card -->
 </div>
 

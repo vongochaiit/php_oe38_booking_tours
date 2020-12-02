@@ -16,6 +16,7 @@ class CommentReview extends Model
     protected $fillable = [ 
         'user_id', 
         'tour_id',
+        'title',
         'content',
         'type',
         'parent_id',

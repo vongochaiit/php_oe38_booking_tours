@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Tour;
+use App\Models\CommentReview;
 
 class TourController extends Controller
 {
@@ -18,7 +19,11 @@ class TourController extends Controller
     {
         $tour = $this->checkTourExist($id);
         if($tour){
-            return view('client.layouts.tour_details', compact('tour'));
+            $reviews = CommentReview::with('tour')
+                    ->where('tour_id',$id)
+                    ->where('type',config('app.review_type'))
+                    ->get();
+            return view('client.layouts.tour_details', compact('tour','reviews'));
         }
     }
 

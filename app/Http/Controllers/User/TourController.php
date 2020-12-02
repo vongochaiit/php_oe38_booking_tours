@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Tour;
 use App\Models\CommentReview;
+use App\Component\CommentRecursive;
+use Auth;
 
 class TourController extends Controller
 {
@@ -20,10 +22,16 @@ class TourController extends Controller
         $tour = $this->checkTourExist($id);
         if($tour){
             $reviews = CommentReview::with('tour')
-                    ->where('tour_id',$id)
-                    ->where('type',config('app.review_type'))
+                    ->where('tour_id', $id)
+                    ->where('type', config('app.review_type'))
                     ->get();
-            return view('client.layouts.tour_details', compact('tour','reviews'));
+            $comments = CommentReview::with('user')
+                    ->where('type', config('app.comment_type'))
+                    ->where('tour_id', $id)
+                    ->get();
+            $commentRecursive = new CommentRecursive();
+            $comment_data = $commentRecursive->recursive($comments);
+            return view('client.layouts.tour_details', compact('tour', 'reviews', 'comment_data'));
         }
     }
 

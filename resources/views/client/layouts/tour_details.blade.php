@@ -1,8 +1,6 @@
-<link href="{{ mix('css/client.css' )}}" rel="stylesheet">
-<link href="{{ mix('fonts/font-awe.css' )}}" rel="stylesheet">
-<base href="{{ asset('') }}">
-@include('client.layouts.header')
-@include('client.layouts.dark')
+@extends('client.layouts.master')
+
+@section('content')
 <div class="container">
   <!-- Card -->
   <div class="card card-cascade wider reverse">
@@ -117,7 +115,19 @@
     @endauth
   </div>
   <!-- Card -->
+  <div class="comment mt-5">
+    <input type="hidden" id="tour_id" value="{{$tour->tour_id}}">
+    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+    <div id="comments">
+      {!! $comment_data !!}
+    </div>
+    <br>
+    @auth
+      <div class="new_comment">
+        <textarea id="content0"></textarea>
+        <button id="button0" data-url="{{route('comment.create')}}" onClick="submit(this)">{{trans('language.create')}}</button>
+      </div>
+    @endauth
+  </div>
 </div>
-
-@include('client.layouts.footer')
-<script type="text/javascript" src="{{ mix('js/client.js') }}"></script>
+@endsection

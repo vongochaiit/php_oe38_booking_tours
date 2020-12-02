@@ -36,10 +36,16 @@ Route::group(['namespace'=>'User'], function(){
 
     Route::get('/tour/index', 'TourController@index')->name('user.tour.index');
     Route::get('/tour/show/{id}', 'TourController@show')->name('user.tour.show');
+
     Route::resource('review','ReviewController');
     Route::get('review/create/{id}','ReviewController@createReviews')->middleware('auth')->name('review.createReview');
     Route::post('home/register', 'UserController@registerClient')->name('register');
     Route::resource('user', 'UserController');
+
+    Route::post('comment/create', 'CommentController@create')->middleware('auth')->name('comment.create');
+    Route::post('comment/update', 'CommentController@update')->middleware('auth')->name('comment.update');
+    Route::delete('comment/destroy', 'CommentController@destroy')->middleware('auth')->name('comment.destroy');
+
 });
 
 // i18

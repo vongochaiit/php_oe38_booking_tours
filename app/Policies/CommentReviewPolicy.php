@@ -54,6 +54,10 @@ class CommentReviewPolicy
      */
     public function delete(User $user, CommentReview $commentReview)
     {
-        return $user->user_id === $commentReview->user_id;
+        if($user->user_id === $commentReview->user_id || $user->isAdmin()){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBankaccountUserContraint extends Migration
+class CreatePaymentBooktourContraint extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateBankaccountUserContraint extends Migration
      */
     public function up()
     {
-        Schema::table('bankaccount', function (Blueprint $table) {
-            $table->foreign('user_id')->references('user_id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+        Schema::table('payment', function (Blueprint $table) {
+            $table->foreign('booktour_id')->references('booktour_id')->on('booktour')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -25,8 +25,8 @@ class CreateBankaccountUserContraint extends Migration
      */
     public function down()
     {
-        Schema::table('bankaccount', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
+        Schema::table('payment', function (Blueprint $table) {
+            $table->dropForeign(['booktour_id']);
         });
     }
 }

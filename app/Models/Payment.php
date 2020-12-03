@@ -20,13 +20,8 @@ class Payment extends Model
         'status',
     ];
 
-    public function booktours()
+    public function booktour()
     {
-        return $this->hasMany(BookTour::class,'payment_id','payment_id');
-    }
-
-    public function bankaccount()
-    {
-        return $this->belongsTo(BankAccount::class,'bank_id','bank_id');
+        return $this->belongsTo(BookTour::class,'booktour_id','booktour_id');
     }
 }

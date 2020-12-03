@@ -18,16 +18,19 @@
     <!--header-->
     @include('client.layouts.header')
     <!-- //header -->
-    @include('client.layouts.slide')
+    {{-- @include('client.layouts.slide')
     <!-- /main-slider -->
     @include('client.layouts.tour')
     <!--//grids-->
     @include('client.layouts.hot_tour')
     <!-- //stats -->
-    @include('client.layouts.review')
+    @include('client.layouts.review') --}}
+    @yield('content')
     <!-- //testimonials -->
     @include('client.layouts.footer')
     <script type="text/javascript" src="{{ mix('js/client.js') }}"></script>
+    <script type="text/javascript" src="{{ mix('js/ajax.js') }}"></script>
+    <script type="text/javascript" src="{{ mix('js/jquery-3.5.1.min.js') }}"></script>
 </body>
 
 

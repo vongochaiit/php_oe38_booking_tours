@@ -7,6 +7,10 @@
         <div class="title-content text-left mb-lg-5 mb-4">
             @include('Common.Error')
             <h3 class="hny-title">@lang('language.popular')</h3>
+            <form method="get" action="{{ route('searchTour') }}" class="form-inline mr-auto">
+                <input type="text" name="searchTour" class="form-control col-sm-8"  >
+                <button class="btn aqua-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">@lang('language.search')</button>
+            </form>
         </div>
         <div class="row bottom-ab-grids">
             <!--/row-grids-->

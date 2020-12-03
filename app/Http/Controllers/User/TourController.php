@@ -45,4 +45,14 @@ class TourController extends Controller
             return $tour;
         }
     }
+
+     public function searchTour(Request $request)
+    {
+        if($request->searchTour != null){
+            $tours = Tour::where('name','like','%'.$request->searchTour.'%')->get();
+            return view('client.pages.tour.index',compact('tours'));
+        }else{
+            return redirect()->route('user.tour.index');
+        }
+    }
 }

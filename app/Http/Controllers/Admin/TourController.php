@@ -18,6 +18,12 @@ class TourController extends Controller
      */
     public function index()
     {
+        if ($request->searchTour != null) {
+
+            $tours = Tour::where('name','like',$request->searchTour)->get();
+            return view('admin.pages.tour.index',compact('tours'));
+        }
+
         $tours = Tour::with('category')->get();
         return view('admin.pages.tour.index', compact('tours'));
     }

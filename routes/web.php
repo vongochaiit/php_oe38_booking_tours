@@ -46,7 +46,9 @@ Route::group(['namespace'=>'User'], function(){
     Route::post('comment/update', 'CommentController@update')->middleware('auth')->name('comment.update');
     Route::delete('comment/destroy', 'CommentController@destroy')->middleware('auth')->name('comment.destroy');
 
+    Route::get('searchTour','TourController@searchTour')->name('searchTour');
 });
+
 
 // i18
 Route::group(['middleware' => 'locale'], function() {

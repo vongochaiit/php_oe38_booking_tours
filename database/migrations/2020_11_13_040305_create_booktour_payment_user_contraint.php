@@ -15,7 +15,6 @@ class CreateBooktourPaymentUserContraint extends Migration
     {
         Schema::table('booktour', function (Blueprint $table) {
             $table->foreign('user_id')->references('user_id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('payment_id')->references('payment_id')->on('payment')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -28,7 +27,6 @@ class CreateBooktourPaymentUserContraint extends Migration
     {
         Schema::table('booktour', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
-            $table->dropForeign(['payment_id']);
         });
     }
 }

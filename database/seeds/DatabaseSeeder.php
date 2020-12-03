@@ -17,9 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RatingSeeder::class);
         $this->call(CommentReviewSeeder::class);
         $this->call(LikeTableSeeder::class);
-        $this->call(BankAccountSeeder::class);
-        $this->call(PaymentSeeder::class);
         $this->call(BookTourSeeder::class);
+        $this->call(PaymentSeeder::class);
         $this->call(BookTourDetailsSeeder::class);
     }
 }

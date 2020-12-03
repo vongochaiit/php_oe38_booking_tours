@@ -31,6 +31,6 @@ class BookTour extends Model
 
     public function payment()
     {
-        return $this->belongsTo(Payment::class, 'payment_id', 'payment_id');
+        return $this->hasOne(Payment::class, 'booktour_id', 'booktour_id');
     }
 }

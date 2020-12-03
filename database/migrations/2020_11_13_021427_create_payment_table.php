@@ -18,7 +18,7 @@ class CreatePaymentTable extends Migration
             $table->increments('payment_id');
             $table->string('payment_method');
             $table->integer('payment_status');
-            $table->integer('bank_id')->unsigned();
+            $table->integer('booktour_id')->unsigned();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
             $table->softDeletes(); 

@@ -74,6 +74,7 @@ $factory->define(\App\Models\CommentReview::class, function (Faker\Generator $fa
         'content' => $faker->text(100),
         'type' => $type,
         'parent_id' => $type == 1 ? $faker->numberBetween(1,10) : null,
+        'title' => $type == 2 ? $faker->sentence(6, true) : null,
     ];
 });
 
@@ -85,11 +86,10 @@ $factory->define(\App\Models\Like::class, function (Faker\Generator $faker) {
     ];
 });
 
-//BankAccount
-$factory->define(\App\Models\BankAccount::class, function (Faker\Generator $faker) {
+//Booktour
+$factory->define(\App\Models\BookTour::class, function (Faker\Generator $faker) {
     return [
         'user_id' => $faker->numberBetween(1,10),
-        'bank_name' => $faker->name,
     ];
 });
 
@@ -97,16 +97,8 @@ $factory->define(\App\Models\BankAccount::class, function (Faker\Generator $fake
 $factory->define(\App\Models\Payment::class, function (Faker\Generator $faker) {
     return [
         'payment_method' => $faker->word,
-        'bank_id' => $faker->numberBetween(1,10),
+        'booktour_id' => $faker->numberBetween(1,10),
         'payment_status' => $faker->numberBetween(1,2)
-    ];
-});
-
-//Booktour
-$factory->define(\App\Models\BookTour::class, function (Faker\Generator $faker) {
-    return [
-        'user_id' => $faker->numberBetween(1,10),
-        'payment_id' => $faker->numberBetween(1,10),
     ];
 });
 

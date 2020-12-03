@@ -17,7 +17,6 @@ class CreateBooktourTable extends Migration
         Schema::create('booktour', function (Blueprint $table) {
             $table->increments('booktour_id');
             $table->integer('user_id')->unsigned();
-            $table->integer('payment_id')->unsigned();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
             $table->softDeletes(); 

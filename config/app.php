@@ -3,9 +3,7 @@
 return [
     'admin_role' => 1,
     'user_role' => 0,
-    'paginate_number' =>10,
-    'comment_type' => 1,
-    'review_type' => 2,
+    'paginate_number' => 5,
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'Asia/Ho_Chi_Minh',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -181,7 +179,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -231,7 +228,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

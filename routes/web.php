@@ -24,6 +24,7 @@ Route::group([
         Route::resource('tour', 'TourController');
         Route::resource('/category','CategoryController');
     });
+    
 });
 Route::group(['namespace'=>'User'], function(){
     Route::get('login', 'LoginController@index')->name('showlogin');
@@ -37,11 +38,10 @@ Route::group(['namespace'=>'User'], function(){
     Route::get('/tour/show/{id}', 'TourController@show')->name('user.tour.show');
     Route::resource('review','ReviewController');
     Route::get('review/create/{id}','ReviewController@createReviews')->middleware('auth')->name('review.createReview');
+    Route::post('home/register', 'UserController@registerClient')->name('register');
+    Route::resource('user', 'UserController');
 });
 
-Route::get('/home/tour_details', function () {
-    return view('client.layouts.tour_details');
-});
 // i18
 Route::group(['middleware' => 'locale'], function() {
     Route::get('change-language/{language}', 'changeLanguageController@changeLanguage')

@@ -23,8 +23,9 @@
                     </li>
                     @if (Auth::check())
                     <li class="nav-item">
-
-                        <a class="nav-link" href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#elegantModalForm">{{Auth::user()->username}}</a>
+                       
+                        <a class="nav-link" href="{{ route('user.edit',Auth::user()->user_id)  }}" class="btn btn-default btn-rounded"  >{{Auth::user()->username}}</a>
+                       
                     </li>
                     <li class="nav-item">
 
